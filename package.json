@@ -1,0 +1,20 @@
+{
+  "name": "adventOfCode",
+  "version": "1.0.0",
+  "description": "advent of code exercises",
+  "main": "src/main.js",
+  "scripts": {
+    "compile": "tsc --build .tsconfig.json ",
+    "start": "tsc --build .tsconfig.json && node dist/lib/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^7.0.5"
+  }
+}

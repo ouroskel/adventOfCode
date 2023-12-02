@@ -1,0 +1,13 @@
+
+{
+    "compilerOptions": {
+      "module": "node16",
+      "target": "es2022",
+      "lib": ["ES2022", "DOM"],
+      "declaration": true,
+      "outDir": "./dist/lib",
+      "moduleResolution": "node16",
+      "resolveJsonModule": true
+    },
+    "include": ["src/**/*.ts","src/**/*.js"]
+  }
