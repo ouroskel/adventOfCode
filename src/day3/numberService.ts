@@ -33,3 +33,7 @@ export const extractNumberAndSymbols = (line: string): Line => {
     }
     return res;
 }
+
+export const isAdgacent = (number: GridNumber, symbol: number) => {
+    return symbol >= number.position.start - 1 && symbol <= number.position.end + 1
+}

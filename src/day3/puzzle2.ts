@@ -1,5 +1,5 @@
 import { readFile } from '../utils/getDataFile.js'
-import { extractNumberAndSymbols } from './numberService.js';
+import { extractNumberAndSymbols, isAdgacent } from './numberService.js';
 
 
 export const solve = (): number => {
@@ -17,18 +17,12 @@ export const solve = (): number => {
 
 const getGearRatios = (previousLineNumbers: GridNumber[], nextLineNumbers: GridNumber[], currentLine: Line) => {
     let gearRatios: number[] = []
+    const allNumbers = [...previousLineNumbers, ...currentLine.numbers, ...nextLineNumbers]
     for (const gear of currentLine.gears) {
-        const previousAdjacentNumbers = previousLineNumbers.filter(number => isAdgacent(number, gear))
-        const currentAdjacentNumbers = currentLine.numbers.filter(number => isAdgacent(number, gear))
-        const nextAdjacentNumbers = nextLineNumbers.filter(number => isAdgacent(number, gear))
-        const adjacentNumbers = [...previousAdjacentNumbers, ...currentAdjacentNumbers, ...nextAdjacentNumbers]
+        const adjacentNumbers = allNumbers.filter(number => isAdgacent(number, gear))
         if (adjacentNumbers.length === 2) {
             gearRatios.push(adjacentNumbers[0].value * adjacentNumbers[1].value)
         }
     }
     return gearRatios;
-}
-
-const isAdgacent = (number: GridNumber, symbol: number) => {
-    return symbol >= number.position.start - 1 && symbol <= number.position.end + 1
 }
