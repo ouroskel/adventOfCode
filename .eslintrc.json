@@ -1,0 +1,14 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@stylistic/ts"],
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "rules": {
+    "no-unused-vars":"error",
+        "@stylistic/ts/quotes": ["error", "single", { "avoidEscape": true }]
+    }
+}

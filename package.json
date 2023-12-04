@@ -1,12 +1,13 @@
 {
-  "name": "adventOfCode",
+  "name": "advent-of-code",
   "version": "1.0.0",
   "description": "advent of code exercises",
   "main": "src/main.js",
   "scripts": {
     "compile": "tsc --build .tsconfig.json ",
     "start": "tsc --build .tsconfig.json && node dist/lib/main.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .ts"
   },
   "type": "module",
   "author": "",
@@ -15,6 +16,10 @@
     "typescript": "^5.2.2"
   },
   "devDependencies": {
-    "@types/node": "^7.0.5"
+    "@stylistic/eslint-plugin": "^1.4.1",
+    "@types/node": "^7.0.5",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
+    "eslint": "^8.55.0"
   }
 }

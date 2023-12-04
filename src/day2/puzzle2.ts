@@ -2,7 +2,7 @@ import { readFile } from '../utils/getDataFile.js'
 import { COLORS, lineToGame } from './gameService.js';
 
 export const solve = () => {
-    const datas = readFile(2, 1)
+    const datas = readFile(2, 2)
     const games = datas.map(lineToGame)
     return games.map(getGamePower).reduce((acc, current) => acc + current, 0);
 }

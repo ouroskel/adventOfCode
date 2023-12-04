@@ -3,14 +3,18 @@ export const FULL_NUMBERS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'one',
 
 
 export const getFirstElementInString = (elements: string[], text: string): string => {
+    // Position de chaque element dans le texte (l'index de la position correspond à l'index dans elements)
     const elementIndexes = elements.map(n => text.indexOf(n))
+    //  Position de la valeur la plus basse dans elementIndexes (la position du premier élément dans le texte)
     const minIndexIndex = elementIndexes.indexOf(elementIndexes.filter(n => n>=0).sort((a, b) => a - b)[0])
     const firstElement = elements[minIndexIndex]
     return firstElement;
 }
 
 export const getLastElementInString = (elements: string[], text: string): string => {
+    // Position de chaque element dans le texte (l'index de la position correspond à l'index dans elements)
     const elementIndexes = elements.map(n => text.lastIndexOf(n))
+    //  Position de la valeur la plus haute dans elementIndexes (la position du premier élément dans le texte)
     const maxIndexIndex = elementIndexes.indexOf(elementIndexes.filter(n => n>=0).sort((a, b) => b - a)[0])
     const lastElement = elements[maxIndexIndex]
     return lastElement;

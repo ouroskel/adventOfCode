@@ -5,7 +5,7 @@ export const solve = (): number => {
     const datas = readFile(3, 1);
     const lines: Line[] = datas.map(extractNumberAndSymbols)
 
-    let validNumbers: number[] = getValidNumbers([], lines[1].symbols, lines[0])
+    const validNumbers: number[] = getValidNumbers([], lines[1].symbols, lines[0])
     for(let i=1; i< lines.length-1 ; i++){
         validNumbers.push(...getValidNumbers(lines[i-1].symbols, lines[i+1].symbols, lines[i]))
     }

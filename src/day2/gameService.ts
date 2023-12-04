@@ -24,7 +24,7 @@ const stringGameSetToGameSet = (stringGameSet: string): GameSet => {
     const gameSet: GameSet = gameSetComponents.reduce((acc: Partial<GameSet>, current: string) => {
         const currentColor = getColorFromString(current)
         acc[current] = getQuantityOfColorFromString(currentColor, current)
-        return {...acc, [currentColor]: getQuantityOfColorFromString(currentColor, current)} 
+        return { ...acc, [currentColor]: getQuantityOfColorFromString(currentColor, current) }
     }, {})
     return gameSet;
 }
@@ -35,7 +35,7 @@ const getColorFromString = (text: string): Color => {
             return color as Color
         }
     }
-    throw new Error("This string contains no legal color")
+    throw new Error('This string contains no legal color')
 }
 
 const getQuantityOfColorFromString = (color: Color, text: string): number => {
