@@ -1,4 +1,4 @@
-import { readFile } from '../utils/getDataFile.js'
+import { readFile } from '../../utils/getDataFile.js'
 import { extractNumberAndSymbols, isAdgacent } from './numberService.js';
 
 

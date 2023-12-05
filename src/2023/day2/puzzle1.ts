@@ -1,4 +1,4 @@
-import { readFile } from '../utils/getDataFile.js'
+import { readFile } from '../../utils/getDataFile.js'
 import { COLORS, lineToGame } from './gameService.js'
 
 const GAME_LIMITS = {

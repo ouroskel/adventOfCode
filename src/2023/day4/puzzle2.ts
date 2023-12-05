@@ -1,4 +1,4 @@
-import { readFile } from '../utils/getDataFile.js'
+import { readFile } from '../../utils/getDataFile.js'
 import { getValidNumbers, lineToTicket } from './ticketService.js';
 
 export const solve = (): number => {

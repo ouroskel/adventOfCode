@@ -1,5 +1,5 @@
-import { readFile } from '../utils/getDataFile.js'
-import { NUMBERS, getFirstElementInString, getLastElementInString, toNumberString } from './stringService.js'
+import { readFile } from '../../utils/getDataFile.js'
+import { FULL_NUMBERS, getFirstElementInString, getLastElementInString, toNumberString } from './stringService.js'
 
 export const solve = (): number => {
     const datas = readFile(1, 1)
@@ -8,7 +8,7 @@ export const solve = (): number => {
 }
 
 const calculateValue = (text: string): number => {
-    const first = getFirstElementInString(NUMBERS, text);
-    const last = getLastElementInString(NUMBERS, text);
+    const first = getFirstElementInString(FULL_NUMBERS, text);
+    const last = getLastElementInString(FULL_NUMBERS, text);
     return Number.parseInt(toNumberString(first) + toNumberString(last))
 }
