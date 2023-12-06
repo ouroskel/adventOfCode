@@ -11,6 +11,7 @@ interface Datas {
 
 interface Converters {
     converters: Converter[]
+    name: string
 }
 
 interface DatasV2 {

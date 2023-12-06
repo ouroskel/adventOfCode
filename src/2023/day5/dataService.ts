@@ -14,7 +14,6 @@ const datasToSeed = (line: string) : Interval[] => {
     const seeds : Interval[] = []
     for (let i = 0; i < seedNumbers.length; i+=2) {
         seeds.push({start:seedNumbers[i], end:seedNumbers[i]+seedNumbers[i+1]-1})
-        
     }
     return seeds
 }
@@ -23,14 +22,8 @@ const lineToSeeds = (line: string): number[] => {
     return line.split(':')[1].split(VALUE_SEPARATOR).filter(s => !!s).map(value => Number.parseInt(value))
 }
 
-
-const datasToConverters = (datas: string[]) => {
-    const splits: number[] = []
-    let lineSeparatorIndex = datas.indexOf(LINE_SEPARATOR)
-    while (lineSeparatorIndex !== -1) {
-        splits.push(lineSeparatorIndex);
-        lineSeparatorIndex = datas.indexOf(LINE_SEPARATOR, lineSeparatorIndex + 1)
-    }
+const datasToConverters = (datas: string[]): Converters[] => {
+    const splits: number[] = findSplitLines(datas)
 
     const convertersLines: string[][] = []
     for (let i = 0; i < splits.length - 1; i++) {
@@ -41,9 +34,22 @@ const datasToConverters = (datas: string[]) => {
     return convertersLines.map(linesToConverters)
 }
 
+/**
+ * find the index of the empty lines separating each blocks 
+ */
+const findSplitLines = (datas: string[]): number[] => {
+    const splits: number[] = []
+    let lineSeparatorIndex = datas.indexOf(LINE_SEPARATOR)
+    while (lineSeparatorIndex !== -1) {
+        splits.push(lineSeparatorIndex);
+        lineSeparatorIndex = datas.indexOf(LINE_SEPARATOR, lineSeparatorIndex + 1)
+    }
+    return splits
+}
+
 const linesToConverters = (lines: string[]): Converters => {
-    const [, ...valueLines] = lines
-    return { converters: valueLines.map(lineToConverter) }
+    const [header, ...valueLines] = lines
+    return { converters: valueLines.map(lineToConverter), name:header }
 }
 
 const lineToConverter = (line: string): Converter => {
