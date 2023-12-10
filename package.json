@@ -14,13 +14,19 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "jest": "^29.7.0",
     "typescript": "^5.2.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.23.5",
+    "@babel/preset-env": "^7.23.5",
+    "@babel/preset-typescript": "^7.23.3",
     "@stylistic/eslint-plugin": "^1.4.1",
     "@types/node": "^7.0.5",
     "@typescript-eslint/eslint-plugin": "^6.13.1",
     "@typescript-eslint/parser": "^6.13.1",
-    "eslint": "^8.55.0"
+    "babel-jest": "^29.7.0",
+    "eslint": "^8.55.0",
+    "@types/jest": "^29.5.11"
   }
 }
