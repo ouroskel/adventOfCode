@@ -26,10 +26,8 @@ const getGcd = (a:number, b:number): number => {
 }
 
 const getLcm = ([head, ...rest]: number[]): number => {
-    console.log(JSON.stringify({rest, head}))
     if(rest.length === 0) return head
     const previous = getLcm(rest)
-    console.log(previous)
     return  previous * head / getGcd(previous, head)
 }
 
@@ -43,7 +41,6 @@ export const exploreGraphEndingWithZ = (instructions: string[], graph: Graph, st
             if (currentNode.endsWith('Z')) break
         }
     }
-    console.log(numberOfSteps)
     return numberOfSteps
 }
 
