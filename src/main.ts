@@ -12,6 +12,8 @@ import { solve as solveDay6_1 } from './2023/day6/puzzle1.js'
 import { solve as solveDay6_2 } from './2023/day6/puzzle2.js'
 import { solve as solveDay7_1 } from './2023/day7/puzzle1.js'
 import { solve as solveDay7_2 } from './2023/day7/puzzle2.js'
+import { solve as solveDay8_1 } from './2023/day8/puzzle1.js'
+import { solve as solveDay8_2 } from './2023/day8/puzzle2.js'
 
 
 
@@ -23,6 +25,7 @@ const results = {
     day5: { 1: solveDay5_1(), 2: solveDay5_2()},
     day6: { 1: solveDay6_1(), 2: solveDay6_2()},
     day7: { 1: solveDay7_1(), 2: solveDay7_2()},
+    day8: { 1: solveDay8_1(), 2: solveDay8_2()},
 }
 console.log(results);
 

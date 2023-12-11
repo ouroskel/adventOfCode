@@ -33,6 +33,24 @@ export const parseLine = (line: string): Hand => {
     }
 }
 
+export const sortHandsByValue = (hands: Hand[]): Hand[] => {
+    return hands.sort((a,b) => calculateHandValue(a) - calculateHandValue(b))
+}
+
+export const setJackAsJoker = (): void => {
+    CARDS.find(card => card.name === 'J')!.value = 1
+}
+
+export const findCardsComboWithJoker = (cards: Card[]) => {
+    const combos = CARDS.map(joker => findCardsCombo(cards.map( c => c.name ==='J' ? joker : c)))
+    return combos.sort((a,b) => b-a)[0]
+}
+
+export const sortHandsWithJokerByValue = (hands: Hand[]): Hand[] => {
+    return hands.sort((a,b) => calculateHandWithJokerValue(a) - calculateHandWithJokerValue(b))
+}
+
+// export pour test
 export const calculateHandValue = (hand: Hand) => {
     const combo = findCardsCombo(hand.cards)
     const value = combo * comboValue + hand.cards.reduce((acc, current) => {
@@ -40,11 +58,6 @@ export const calculateHandValue = (hand: Hand) => {
     }, 0)
     return value
 }
-
-export const sortHandsByValue = (hands: Hand[]): Hand[] => {
-    return hands.sort((a,b) => calculateHandValue(a) - calculateHandValue(b))
-}
-
 const parseCard = (card: string): Card => {
     return CARDS.find(c => c.name === card)!
 }
@@ -82,3 +95,12 @@ const isFullHouse = ([first, ...rest]: Card[]): boolean => {
 const isDoublePair = (cards: Card[]): boolean => {
     return cards.map(card => cards.filter(c => c.name === card.name).length).filter(occ => occ === 2).length > 2
 }
+
+const calculateHandWithJokerValue = (hand: Hand) => {
+    const combo = findCardsComboWithJoker(hand.cards)
+    const value = combo * comboValue + hand.cards.reduce((acc, current) => {
+        return mult * acc + current.value
+    }, 0)
+    return value
+}
+

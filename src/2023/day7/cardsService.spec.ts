@@ -1,4 +1,4 @@
-import {calculateHandValue, parseLine} from './cardsService.js'
+import {parseLine, calculateHandValue} from './cardsService.js'
 
 
 describe('calculateHandValue',() => {
